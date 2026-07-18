@@ -1,0 +1,133 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#8B5CF6"/>
+        <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+
+    <filter id="glow">
+        <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+        <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+</defs>
+
+<!-- Background Circle -->
+<circle
+    cx="110"
+    cy="110"
+    r="90"
+    fill="#1E1B4B"
+/>
+
+<!-- Glow -->
+<circle
+    cx="110"
+    cy="110"
+    r="88"
+    stroke="url(#purple)"
+    stroke-width="3"
+    opacity="0.5"
+    filter="url(#glow)"
+/>
+
+<!-- Gallows -->
+<g stroke="url(#purple)" stroke-width="8" stroke-linecap="round">
+
+    <line x1="65" y1="165" x2="65" y2="55"/>
+
+    <line x1="65" y1="55" x2="130" y2="55"/>
+
+    <line x1="130" y1="55" x2="130" y2="75"/>
+
+</g>
+
+<!-- Rope -->
+<line
+    x1="130"
+    y1="75"
+    x2="130"
+    y2="88"
+    stroke="#E5E7EB"
+    stroke-width="4"
+/>
+
+<!-- Head -->
+<circle
+    cx="130"
+    cy="100"
+    r="12"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    fill="none"
+/>
+
+<!-- Eyes -->
+<line x1="125" y1="97" x2="128" y2="100" stroke="#F8FAFC" stroke-width="2"/>
+<line x1="128" y1="97" x2="125" y2="100" stroke="#F8FAFC" stroke-width="2"/>
+
+<line x1="132" y1="97" x2="135" y2="100" stroke="#F8FAFC" stroke-width="2"/>
+<line x1="135" y1="97" x2="132" y2="100" stroke="#F8FAFC" stroke-width="2"/>
+
+<!-- Body -->
+<line
+    x1="130"
+    y1="112"
+    x2="130"
+    y2="145"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    stroke-linecap="round"
+/>
+
+<!-- Arms -->
+<line
+    x1="130"
+    y1="122"
+    x2="115"
+    y2="132"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    stroke-linecap="round"
+/>
+
+<line
+    x1="130"
+    y1="122"
+    x2="145"
+    y2="132"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    stroke-linecap="round"
+/>
+
+<!-- Legs -->
+<line
+    x1="130"
+    y1="145"
+    x2="118"
+    y2="163"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    stroke-linecap="round"
+/>
+
+<line
+    x1="130"
+    y1="145"
+    x2="142"
+    y2="163"
+    stroke="#F8FAFC"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+<!-- Stars -->
+<circle cx="45" cy="70" r="2" fill="#8B5CF6"/>
+<circle cx="175" cy="60" r="2.5" fill="#6366F1"/>
+<circle cx="170" cy="165" r="2" fill="#8B5CF6"/>
+<circle cx="55" cy="160" r="2.5" fill="#6366F1"/>
+
+</svg>

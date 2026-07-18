@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
+import AppRoutes from "@/routes/AppRoutes";
 
 function App() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950">
-      <Button>Test Button</Button>
-    </div>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
