@@ -14,7 +14,7 @@ export default function Logo({
       subtitle: "text-base",
     },
     lg: {
-      title: "text-6xl",
+      title: "text-5xl md:text-6xl",
       subtitle: "text-lg",
     },
   };
