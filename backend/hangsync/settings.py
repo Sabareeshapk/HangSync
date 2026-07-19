@@ -33,6 +33,7 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "hangsync-backend.onrender.com",
 ]
 
 
@@ -141,6 +142,10 @@ STATICFILES_STORAGE = (
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://hangsync-backend.onrender.com",
 ]
 
 ASGI_APPLICATION = "hangsync.asgi.application"
