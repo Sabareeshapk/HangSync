@@ -1,19 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Plus, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import generateRoomCode from "@/utils/generateRoomCode";
+// import generateRoomCode from "@/utils/generateRoomCode";
+import { createRoom } from "@/services/api/roomService";
 import { motion } from "framer-motion";
 export default function ActionButtons({ playerName }) {
   const navigate = useNavigate();
 //   const playerName = localStorage.getItem("playerName") || "";
   const isNameEntered = playerName.trim().length > 0;
 
-  const handleCreateRoom = () => {
-  const roomCode = generateRoomCode();
+  const handleCreateRoom = async () => {
+  try {
+    // Save the player's name
+    localStorage.setItem("playerName", playerName);
+    localStorage.setItem("playerIdentity", "host");
 
-  localStorage.setItem("roomCode", roomCode);
+    const response = await createRoom(playerName);
 
-  navigate("/waiting-room");
+    localStorage.setItem("roomCode", response.room.room_code);
+
+    navigate("/waiting-room");
+  } catch (error) {
+    console.error("Create room failed:", error);
+    alert("Failed to create room.");
+  }
 };
 
   return (
@@ -38,7 +48,10 @@ export default function ActionButtons({ playerName }) {
         disabled={!isNameEntered}
         variant="outline"
         className="h-12 rounded-xl border-slate-700 bg-transparent text-white transition-all duration-200 hover:bg-slate-800 hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
-        onClick={() => navigate("/join-room")}
+        onClick={() => {
+          localStorage.setItem("playerName", playerName);
+          navigate("/join-room");
+        }}
       >
         <LogIn className="mr-2 h-5 w-5" />
         Join Room

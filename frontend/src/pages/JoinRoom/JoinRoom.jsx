@@ -3,13 +3,45 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
+import { joinRoom } from "@/services/api/roomService";
 import PageContainer from "@/components/common/PageContainer";
 import GlassCard from "@/components/common/GlassCard";
-
+import useGameStore from "@/store/gameStore";
 export default function JoinRoom() {
   const navigate = useNavigate();
   const [roomCode, setRoomCode] = useState("");
+  const setRoom = useGameStore((state) => state.setRoom);
+  const handleJoinRoom = async () => {
+  try {
+    const playerName = localStorage.getItem("playerName");
+
+    const response = await joinRoom(roomCode, playerName);
+
+    // Save room in Zustand
+    setRoom(response.room);
+
+        localStorage.setItem(
+      "room",
+      JSON.stringify(response.room)
+    );
+
+    localStorage.setItem("roomCode", response.room.room_code);
+    localStorage.setItem("playerIdentity", "guest");
+
+    navigate("/waiting-room");
+    console.log(response);
+    console.log(response.room);
+
+  } catch (error) {
+    console.error("Join Room Error:", error);
+
+    if (error.response) {
+      alert(error.response.data.message);
+    } else {
+      alert("Unable to connect to the server.");
+    }
+  }
+};
 
   return (
     <PageContainer>
@@ -56,7 +88,7 @@ export default function JoinRoom() {
             <Button
                 className="mt-8 h-12 w-full rounded-xl bg-violet-600 transition-all duration-200 hover:bg-violet-700 hover:scale-[1.02] active:scale-95"
                 disabled={roomCode.length !== 6}
-                onClick={() => navigate("/waiting-room")}
+                onClick={handleJoinRoom}
                 >
                 Join Room
                 </Button>

@@ -1,0 +1,1 @@
+from apps.rooms.routing import websocket_urlpatterns

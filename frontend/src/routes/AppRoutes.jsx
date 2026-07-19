@@ -5,7 +5,7 @@ import JoinRoom from "@/pages/JoinRoom/JoinRoom";
 import WaitingRoom from "@/pages/WaitingRoom/WaitingRoom";
 import Game from "@/pages/Game/Game";
 import NotFound from "@/pages/NotFound/NotFound";
-
+// import Game from "@/pages/Game/Game";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -32,6 +32,8 @@ export default function AppRoutes() {
           path="*"
           element={<NotFound />}
         />
+
+        <Route path="/game" element={<Game />} />
 
       </Routes>
     </BrowserRouter>
