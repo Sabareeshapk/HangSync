@@ -31,7 +31,7 @@ const resetGame = useGameStore((state) => state.resetGame);
   const handleNextRound = async () => {
   try {
     await axios.post(
-      "http://127.0.0.1:8000/api/game/next-round/",
+      `${import.meta.env.VITE_API_URL}/api/game/next-round/`,
       {
         room_code: room.room_code,
       }
@@ -44,7 +44,7 @@ const resetGame = useGameStore((state) => state.resetGame);
 const handlePlayAgain = async () => {
   try {
     await axios.post(
-      "http://127.0.0.1:8000/api/game/play-again/",
+      `${import.meta.env.VITE_API_URL}/api/game/play-again/`,
       {
         room_code: room.room_code,
       }
@@ -77,7 +77,7 @@ const handleSendHint = async () => {
 
   try {
     await axios.post(
-      "http://127.0.0.1:8000/api/game/submit-hint/",
+      `${import.meta.env.VITE_API_URL}/api/game/submit-hint/`,
       {
         room_code: room.room_code,
         hint: hintText,
@@ -108,7 +108,7 @@ const handleSendHint = async () => {
     try {
       console.log("Calling current-game API...");
       const res = await axios.get(
-        "http://127.0.0.1:8000/api/game/current-game/",
+        `${import.meta.env.VITE_API_URL}/api/game/current-game/`,
         {
           params: {
             room_code: room.room_code,

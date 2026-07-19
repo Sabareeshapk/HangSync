@@ -12,7 +12,7 @@ export default function CategorySelection() {
     if (!category.trim()) return;
 
     try {
-      await axios.post("http://127.0.0.1:8000/api/game/category/", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/game/category/`, {
         room_code: room.room_code,
         category,
       });

@@ -8,7 +8,7 @@ export const connectSocket = (roomCode, player) => {
   }
 
   socket = new WebSocket(
-    `ws://127.0.0.1:8000/ws/rooms/${roomCode}/?player=${player}`
+    `${import.meta.env.VITE_WS_URL}/ws/rooms/${roomCode}/?player=${player}`
 );
 
   socket.onopen = () => {

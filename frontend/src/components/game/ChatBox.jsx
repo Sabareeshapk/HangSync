@@ -16,7 +16,7 @@ export default function ChatBox() {
         try {
 
             const res = await axios.get(
-                "http://127.0.0.1:8000/api/game/messages/",
+                `${import.meta.env.VITE_API_URL}/api/game/messages/`,
                 {
                     params: {
                         room_code: room.room_code,
@@ -60,7 +60,7 @@ export default function ChatBox() {
 
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/game/send-message/",
+        `${import.meta.env.VITE_API_URL}/api/game/send-message/`,
         {
           room_code: room.room_code,
           sender: playerName,

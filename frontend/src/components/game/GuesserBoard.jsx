@@ -10,7 +10,7 @@ const room = useGameStore((state) => state.room);
 const handleLetterClick = async (letter) => {
     try {
         await axios.post(
-            "http://127.0.0.1:8000/api/game/guess/",
+            `${import.meta.env.VITE_API_URL}/api/game/guess/`,
             {
                 room_code: room.room_code,
                 letter,
@@ -24,7 +24,7 @@ const handleLetterClick = async (letter) => {
 const handleRequestHint = async () => {
   try {
     await axios.post(
-      "http://127.0.0.1:8000/api/game/request-hint/",
+      `${import.meta.env.VITE_API_URL}/api/game/request-hint/`,
       {
         room_code: room.room_code,
       }
