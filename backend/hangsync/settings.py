@@ -145,10 +145,12 @@ STATICFILES_STORAGE = (
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://hang-sync.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://hangsync-backend.onrender.com",
+    "https://hang-sync.vercel.app",
 ]
 
 ASGI_APPLICATION = "hangsync.asgi.application"
